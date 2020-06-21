@@ -31,7 +31,7 @@ jobs:
         run: mvn -B test
 
       - name: Publish to GitHub Packages
-        if: ${{ github.event_name == 'push' && github.ref == 'master' }}
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
         run: mvn -B deploy -DskipTests
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
